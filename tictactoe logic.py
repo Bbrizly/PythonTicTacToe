@@ -4,9 +4,11 @@ def Verify(list,a,ax,b,bx,c,cx):
         return 1
     elif list[a][ax] + list[b][bx] + list[c][cx] == "OOO":
         return 0
-e= "_"
+e = "_"
 x = "X"
 o = "O"
+m = ["X","X","X"]
+n = ["O","O","O"]
 rows = [[e,e,e],[e,e,e],[e,e,e]]
 p1 = True
 while True:
@@ -14,14 +16,12 @@ while True:
 
     if Verify(rows,0,0,1,0,2,0) == 1 or Verify(rows,0,1,1,1,2,1) == 1 or Verify(
         rows,0,2,1,2,2,2) == 1 or Verify(rows,0,0,1,1,2,2) == 1 or Verify(
-        rows,0,2,1,1,2,0) == 1 or Verify(rows,0,0,0,1,0,2) == 1 or Verify(
-        rows,1,0,1,1,1,2) == 1 or Verify(rows,2,0,2,1,2,2) == 1:
+        rows,0,2,1,1,2,0) == 1 or rows[1] == m or rows[2] == m or rows[0] == m:
         print("player 1 wins")
         break
     elif Verify(rows,0,0,1,0,2,0) == 0 or Verify(rows,0,1,1,1,2,1) == 0 or Verify(
         rows,0,2,1,2,2,2) == 0 or Verify(rows,0,0,1,1,2,2) == 0 or Verify(
-        rows,0,2,1,1,2,0) == 0 or Verify(rows,0,0,0,1,0,2) == 0 or Verify(
-        rows,1,0,1,1,1,2) == 0 or Verify(rows,2,0,2,1,2,2) == 0:
+        rows,0,2,1,1,2,0) == 0 or rows[1] == m or rows[2] == n or rows[0] == n:
         print("player 2 wins")
         break
 
