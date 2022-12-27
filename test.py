@@ -12,11 +12,10 @@ def Check(q,p):
 e = "_"
 x = "X"
 o = "O"
-q = "Q"
 m = ["X","X","X"]
 n = ["O","O","O"]
 p1 = True
-soy = int(input("Choose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
+soy = int(input("\nAt any time Type save to save or exit to exit.\nChoose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
 #milk = input("Begin with X or O? ").upper()
 rows = [[e,e,e],[e,e,e],[e,e,e]]
 if soy == 3:
@@ -40,7 +39,7 @@ while True:
         print("Player 2 wins")
         break
     elif boom == 5:
-        print("Tie")
+        print("  Tie")
         break
 
     ####### inputs #######
@@ -48,7 +47,6 @@ while True:
     sushi = input("choose (x,y): ").upper().split(",")
     ## exit code ##
     if sushi[0] == "EXIT":
-        print("pickle")
         exit()
     elif sushi[0] == "SAVE":
         with open("board.pk", "wb") as pickle_file:  #####SAVE
