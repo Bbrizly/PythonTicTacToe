@@ -24,8 +24,7 @@ def Computer(salmon,max):
             if boom == max:
                 break
 e,x,o,m,n = "_","X","O", ["X","X","X"], ["O","O","O"]
-farags,milk = "wins",""
-p1 = True
+farags,milk,p1 = "wins","",True
 soy = int(input("\nAt any time Type save to save or exit to exit.\nChoose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
 rows = [[e,e,e],[e,e,e],[e,e,e]]
 if soy == 1:
