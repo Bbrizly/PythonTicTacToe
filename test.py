@@ -21,6 +21,7 @@ def Computer(salmon,max):
                         boom += 1
             if boom == max:
                 break
+
 e,x,o,m,n = "_","X","O", ["X","X","X"], ["O","O","O"]
 farags,milk,p1 = "wins","",True
 soy = int(input("\nAt any time Type save to save or exit to exit.\nChoose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
@@ -38,7 +39,7 @@ elif soy == 3:
         rows = pickle.load(pickle_file)
 
 while True:
-    print("___\n|{}|{}|{}|\n|{}|{}|{}|\n|{}|{}|{}|".format(rows[0][0], rows[0][1], rows[0][2], rows[1][0], rows[1][1], rows[1][2], rows[2][0], rows[2][1], rows[2][2]))
+    print("[y]\n 3 |{}|{}|{}|\n 2 |{}|{}|{}|\n 1 |{}|{}|{}|\n    1 2 3 [x]".format(rows[0][0], rows[0][1], rows[0][2], rows[1][0], rows[1][1], rows[1][2], rows[2][0], rows[2][1], rows[2][2]))
     ####### WIN CHECK #######
     boom = 0
     for i in rows:
@@ -67,7 +68,6 @@ while True:
             pickle.dump(rows, pickle_file)
             print("\tGame Saved!")  # pickling code
             break
-
     a, b = (3 - int(sushi[1])), (int(sushi[0]) - 1)
     if rows[a][b] == e:
         if p1 == True:
