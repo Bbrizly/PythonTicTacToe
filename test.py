@@ -1,10 +1,8 @@
 #❤ Daddy Bassam ❤️
 import pickle, random
 def Verify(list,a,ax,b,bx,c,cx):
-    if list[a][ax] + list[b][bx] + list[c][cx] == "XXX":
-        return 1
-    elif list[a][ax] + list[b][bx] + list[c][cx] == "OOO":
-        return 0
+    if list[a][ax] + list[b][bx] + list[c][cx] == "XXX": return 1
+    elif list[a][ax] + list[b][bx] + list[c][cx] == "OOO": return 0
 def Check(q,p):
     if Verify(rows, 0, 0, 1, 0, 2, 0) == q or Verify(rows, 0, 1, 1, 1, 2, 1) == q or Verify(rows, 0, 2, 1, 2, 2, 2) == q or Verify(rows, 0, 0, 1, 1, 2, 2) == q or Verify(rows, 0, 2, 1, 1, 2, 0) == q or rows[1] == p or rows[2] == p or rows[0] == p:
         return True
