@@ -14,8 +14,14 @@ def Verify(list,a,ax,b,bx,c,cx):
     elif list[a][ax] + list[b][bx] + list[c][cx] == "OOO":
         return 0
 def Check(q,m):
+    print(q, m)
     if Verify(rows, 0, 0, 1, 0, 2, 0) == 1 or Verify(rows, 0, 1, 1, 1, 2, 1) == 1 or Verify(rows, 0, 2, 1, 2, 2, 2) == 1 or Verify(rows, 0, 0, 1, 1, 2, 2) == 1 or Verify(rows, 0, 2, 1, 1, 2, 0) == 1 or rows[1] == m or rows[2] == m or rows[0] == m:
         return(q)
+def printboard():
+    print(
+        "_______\n|{}|{}|{}|\n|{}|{}|{}|\n|{}|{}|{}|".format(rows[0][0], rows[0][1], rows[0][2], rows[1][0], rows[1][1],
+                                                             rows[1][2], rows[2][0], rows[2][1], rows[2][2]))
+
 e = "_"
 x = "X"
 o = "O"
@@ -23,18 +29,26 @@ q = "Q"
 m = ["X","X","X"]
 n = ["O","O","O"]
 soy = int(input("Choose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
-milk = input("Begin with X or O? ").upper()
+milk = input("Play with X or O? ").upper()
 rows = [[e,e,e],[e,e,e],[e,e,e]]
 
+
 p1 = True
+a = True
 while True:
-    print("_______\n|{}|{}|{}|\n|{}|{}|{}|\n|{}|{}|{}|".format(rows[0][0], rows[0][1], rows[0][2], rows[1][0], rows[1][1],
-                                                             rows[1][2], rows[2][0], rows[2][1], rows[2][2]))
+    if soy != 1 and milk != "O" and a == False:
+        printboard()
+    a = False
     ####### WIN CHECK #######
     if Check(1,m):
-        print("player 1 wins")
+        print("MUSTA BEEN A WIN")
+        if soy == 1 and milk == "O":
+            print("Computer wins")
+        else:
+            print("player 1 wins")
         break
     elif Check(0,n):
+        print("MUSTA BEEN A WIN")
         if soy == 1:
             print("Computer wins")
         else:
@@ -80,8 +94,23 @@ while True:
             else:
                 p1 = False
         elif p1 == False:
-            rows[a][b] = o
-            p1 = True
+            if soy == 1 and milk == "O":
+                while True:
+                    q, m = random.randrange(0, 3), random.randrange(0, 3)
+                    if rows[q][m] == e:
+                        rows[q][m] = x
+                        boom = 0
+                        for i in rows:
+                            for j in i:
+                                if j == e:
+                                    boom += 1
+                        if boom == 9:
+                            printboard()
+                        rows[a][b] = o
+                        break
+            else:
+                rows[a][b] = o
+                p1 = True
         continue
     else:
         print("incorrect input try again")
