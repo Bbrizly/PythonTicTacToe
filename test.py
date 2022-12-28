@@ -1,6 +1,5 @@
+#❤ Daddy Bassam ❤️
 import pickle, random
-
-#Daddy Bassam ❤️
 def Verify(list,a,ax,b,bx,c,cx):
     if list[a][ax] + list[b][bx] + list[c][cx] == "XXX":
         return 1
@@ -16,8 +15,7 @@ def Computer(salmon,max):
         if rows[q][m] == e:
             rows[q][m] = salmon
             break
-        else:
-            # preventing infinite loop once ai has no moves
+        else:# preventing infinite loop once ai has no moves
             boom = 0
             for i in rows:
                 for j in i:
@@ -25,11 +23,8 @@ def Computer(salmon,max):
                         boom += 1
             if boom == max:
                 break
-e = "_"
-x = "X"
-o = "O"
-m = ["X","X","X"]
-n = ["O","O","O"]
+e,x,o,m,n = "_","X","O", ["X","X","X"], ["O","O","O"]
+farags,milk = "wins",""
 p1 = True
 soy = int(input("\nAt any time Type save to save or exit to exit.\nChoose: \n1. Play against Computer \n2. Play against yourself \n3. Load save\nChoose 1/2/3: "))
 rows = [[e,e,e],[e,e,e],[e,e,e]]
@@ -54,10 +49,10 @@ while True:
             if j == x:
                 boom += 1
     if Check(1,m):
-        print("Player 1 wins")
+        print("Player 1",farags)
         break
     elif Check(0,n):
-        print("Player 2 wins")
+        print("Player 2",farags)
         break
     elif boom == 5:
         print("  Tie")
@@ -85,11 +80,11 @@ while True:
             else:
                 p1 = False
         elif p1 == False:
+            rows[a][b] = o
             if soy == 1 and milk == o:
                 Computer(x,5)
             else:
                 p1 = True
-            rows[a][b] = o
         continue
     else:
         print("incorrect input try again")
