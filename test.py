@@ -1,4 +1,4 @@
-#❤ Daddy Bassam ❤️
+#Bassam Kamal | Mohammed Kamal | Sajed Farag|
 import pickle, random
 def Board():
     print(
